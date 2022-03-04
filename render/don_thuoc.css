@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  font-size: 9px;
+}
+
+body {
+  font-family: "Cabin";
+}
+
+.header {
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+.logo {
+  border: 2px solid #000000;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+
+.logo img {
+  width: 80%;
+  height: 80%;
+}
+
+.hospital {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.hotline {
+  font-weight: normal;
+}
+
+.title {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-block: 5px;
+  border-bottom: 0.5px solid #1d264699;
+}
+
+.body {
+  padding: 0 20px;
+}
+
+.body .wrapper {
+  border-bottom: 0.5px solid #1d264699;
+  padding-block: 10px;
+}
+
+.body .wrapper:last-child {
+  border: none;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.drug {
+  margin-bottom: 5px;
+}
+
+.drug:last-child {
+  margin-bottom: 0px;
+}
+
+.drug * {
+  font-size: 10px;
+}
+
+.drug .name {
+  font-weight: bold;
+}
+
+.drug .usage {
+  font-size: 8px;
+}
+
+.drug .usage span {
+  font-weight: 600;
+  font-size: 8px;
+}
+
+.message,
+.sign-ctn {
+  width: 50%;
+}
+
+.message .subtitle {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.message .content {
+  font-size: 8px;
+}
+
+.sign {
+  margin-right: 50px;
+}
+
+.sign .subtitle {
+  font-size: 12px;
+}
+
+.sign .doctor {
+  margin-top: 70px;
+}
+
+.note {
+  font-style: italic;
+  font-size: 8px;
+  margin-top: 50px;
+}
+
+.re-check {
+  font-size: 12px;
+  margin-top: -5px;
+}
+
+.re-check span {
+  font-size: 12px;
+  font-weight: 600;
+}
