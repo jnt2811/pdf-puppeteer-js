@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const { dataDonThuoc } = require("./data");
 const don_thuoc = require("./render/don_thuoc");
 
@@ -10,18 +9,16 @@ function pbcopy(data) {
 }
 
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 3113;
 
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use("/pdf", async (req, res) => {
+app.use("/", async (req, res) => {
   const pdf = await don_thuoc(dataDonThuoc);
 
   const pdfBase64 = pdf.toString("base64");
-  // pbcopy(pdfBase64);
+  pbcopy(pdfBase64);
 
   res.set("Content-Type", "application/pdf");
-  res.send(pdf);
+  return res.send(pdf);
 });
 
 app.listen(port, () => {

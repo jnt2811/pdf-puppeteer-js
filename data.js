@@ -4,12 +4,13 @@ module.exports.dataDonThuoc = {
       "https://printgo.vn/uploads/file-logo/1/x512x512.747d5219a89da42fe2408c84760b2bf3.ai.1.png.pagespeed.ic.onO18wiIuj.webp",
     name: "Bệnh viện Bạch Mai",
     phone: "024(6) 484 875",
+    address: "35 Lê Văn Thiêm, P.Thanh Xuân Trung, Q.Thanh Xuân, Hà Nội",
   },
   bac_si: {
     ho_ten: "Nguyen Van B",
   },
   time: "9 : 00",
-  date: "02/02/2022",
+  date: "Ngày 1 tháng 1 năm 2022",
   sinh_hieu:
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, cumque.",
   benh_nhan: {

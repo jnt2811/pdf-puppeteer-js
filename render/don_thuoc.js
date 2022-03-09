@@ -9,6 +9,7 @@ module.exports = async (data) => {
         * {
           box-sizing: border-box;
           font-size: 13px;
+          font-family: "Times New Roman", Times, serif;
         }
         
         body {
@@ -53,8 +54,8 @@ module.exports = async (data) => {
           font-size: 30px;
           text-transform: uppercase;
           font-weight: bold;
-          padding-block: 15px;
-          border-bottom: 0.5px solid #1d264699;
+          padding-block: 20px;
+          border-bottom: 0.5px solid #D0D0D0;
         }
         
         .body {
@@ -62,7 +63,7 @@ module.exports = async (data) => {
         }
         
         .body .wrapper {
-          border-bottom: 0.5px solid #1d264699;
+          border-bottom: 0.5px solid #D0D0D0;
           padding-block: 15px;
         }
         
@@ -125,10 +126,12 @@ module.exports = async (data) => {
         
         .sign .subtitle {
           font-size: 15px;
+          font-weight: 600;
         }
         
         .sign .doctor {
           margin-top: 100px;
+          font-weight: 600;
         }
         
         .note {
@@ -168,6 +171,16 @@ module.exports = async (data) => {
         .mb-3 {
           margin-bottom: 10px;
         }
+
+        .total {
+          font-size: 15px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        .date-xxx {
+          font-weight: 600;
+        }
       </style>
 
       <title>Don thuoc</title>
@@ -175,21 +188,20 @@ module.exports = async (data) => {
 
     <body>
       <div class="header">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="d-flex align-items-center  w-50">
-            <div class="logo d-flex align-items-center justify-content-center">
+        <div class="d-flex align-items-center">
+          ${
+            !!data.hospital.avatar
+              ? `<div class="logo d-flex align-items-center justify-content-center">
               <img src=${data.hospital.avatar} alt="" />
-            </div>
-  
-            <div>
-              <div class="hospital">${data.hospital.name}</div>
-              <div class="hotline">${data.hospital.phone}</div>
-            </div>
-          </div>
-  
-          <div class="text-right w-50">
-            <div class="time-title">Thời gian:</div>
-            <div class="time">${data.time} - ${data.date}</div>
+            </div>`
+              : ""
+          }
+
+          <div>
+            <div class="hospital">${
+              data.hospital.name
+            } dasdad asdadasd adsda asd ad</div>
+            <div class="hotline">Địa chỉ: ${data.hospital.address}</div>
           </div>
         </div>
       </div>
@@ -245,6 +257,12 @@ module.exports = async (data) => {
         </div>
   
         <div class="wrapper">
+          <div class="d-flex justify-content-between">
+            <div class="total">Cộng khoản: ${data.thuoc.length}</div>
+
+            <div style="margin-right: 28px;">${data.date}</div>
+          </div>
+
           <div class="d-flex justify-content-between">
             <div class="message">
               <div class="subtitle">Lời dặn:</div>

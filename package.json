@@ -10,6 +10,7 @@
   "author": "jnt2811",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "puppeteer": "^13.4.1"
   },
