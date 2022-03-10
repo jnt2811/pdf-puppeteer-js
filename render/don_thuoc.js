@@ -198,9 +198,7 @@ module.exports = async (data) => {
           }
 
           <div>
-            <div class="hospital">${
-              data.hospital.name
-            } dasdad asdadasd adsda asd ad</div>
+            <div class="hospital">${data.hospital.name}</div>
             <div class="hotline">Địa chỉ: ${data.hospital.address}</div>
           </div>
         </div>
