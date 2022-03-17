@@ -24,15 +24,16 @@ module.exports = async (data) => {
       }
 
       .container {
-        width: 100%;
-        height: 750px;
-       
+        /* width: 341px; */
+      
         background: #ffffff;
         
       }
       .wrap1 {
         padding-bottom: 12px;
         margin: auto;
+        width: 341px;
+        height: auto;
       }
       .wrap2 {
         height: auto;
@@ -54,14 +55,15 @@ module.exports = async (data) => {
       .title {
         display: flex;
         margin-top: 22px;
-        justify-content: center;
+        
+        
       }
       .title > .icon {
         margin-right: 18.5px;
       }
       .name > b {
         font-size: 23.85px;
-        /* color: #1d2646; */
+        
         margin-bottom: 6.9px;
       }
 
@@ -70,10 +72,7 @@ module.exports = async (data) => {
         color: #808080;
         margin-top: 6.9px;
       }
-      .word {
-        display: flex;
-        flex-direction: column;
-      }
+      
       .line {
         width:100%;
         height: 1px;
