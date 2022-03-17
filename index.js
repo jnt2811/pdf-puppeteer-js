@@ -1,6 +1,7 @@
 const express = require("express");
-const { dataDonThuoc } = require("./data");
+const { dataDonThuoc, dataPhieuTiepDon } = require("./data");
 const don_thuoc = require("./render/don_thuoc");
+const phieu_tiep_don = require("./render/phieuTiepDon");
 
 function pbcopy(data) {
   var proc = require("child_process").spawn("pbcopy");
@@ -13,12 +14,15 @@ const port = process.env.PORT || 3113;
 
 app.use("/", async (req, res) => {
   const pdf = await don_thuoc(dataDonThuoc);
+  const pdf2 = await phieu_tiep_don(dataPhieuTiepDon);
 
   const pdfBase64 = pdf.toString("base64");
+  const pdfBase64_2 = pdf2.toString("base64");
+  pbcopy(pdfBase64_2);
   pbcopy(pdfBase64);
 
   res.set("Content-Type", "application/pdf");
-  return res.send(pdf);
+  return res.send(pdf2);
 });
 
 app.listen(port, () => {
