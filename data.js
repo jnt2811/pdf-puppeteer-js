@@ -124,7 +124,7 @@ module.exports.dataPhieuTiepDon = {
   hospital: {
     avatar:
       "https://printgo.vn/uploads/file-logo/1/x512x512.747d5219a89da42fe2408c84760b2bf3.ai.1.png.pagespeed.ic.onO18wiIuj.webp",
-    name: "CÔNG TY CỔ PHẦN Y TẾ TMEDICAL 2 CÔNG TY CỔ PHẦN Y TẾ TMEDICAL 2",
+    name: "BỆNH VIỆN ĐA KHOA HỮU NGHỊ VIỆT ĐỨC",
     phone: "024(6) 484 875",
     address: "35 Lê Văn Thiêm, P.Thanh Xuân Trung, Q.Thanh Xuân, Hà Nội",
   },

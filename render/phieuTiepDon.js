@@ -38,7 +38,7 @@ module.exports = async (data) => {
       }
       .wrap-1 h2 {
         margin: 0px;
-        width: 50vw;
+        max-width: 50vw;
       }
       .wrap-3 {
         margin: -15px 0px -10px 0px;
@@ -79,7 +79,7 @@ module.exports = async (data) => {
 
         <div class="word">
           <h2>${data.hospital.name}</h2>
-          <div class="sdt">${data.hospital.phone}</div>
+          <div style="margin-top: 5px;">${data.hospital.phone}</div>
         </div>
       </div>
 
