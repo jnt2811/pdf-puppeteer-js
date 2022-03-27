@@ -4,6 +4,7 @@ module.exports = async (data) => {
   function receipt(total, num) {
     return total + num;
   }
+
   console.log(data.dich_vu.thanh_tien);
   const html = `
   <!DOCTYPE html>
