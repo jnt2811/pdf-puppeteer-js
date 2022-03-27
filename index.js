@@ -3,9 +3,10 @@ const {
   dataDonThuoc,
   dataPhieuTiepDon,
   dataPhieuThuPhiDichVu,
+  dataPhieuTomTatKham,
 } = require("./data");
 const don_thuoc = require("./render/don_thuoc");
-const phieu_thu_phi_dich_vu = require("./render/phieuThuPhiDichVu");
+const phieu_tom_tat_kham = require("./render/phieuTomTatKham");
 
 function pbcopy(data) {
   var proc = require("child_process").spawn("pbcopy");
@@ -18,7 +19,7 @@ const port = process.env.PORT || 3113;
 
 app.use("/", async (req, res) => {
   // const pdf = await don_thuoc(dataDonThuoc);
-  const pdf2 = await phieu_thu_phi_dich_vu(dataPhieuThuPhiDichVu);
+  const pdf2 = await phieu_tom_tat_kham(dataPhieuTomTatKham);
 
   // const pdfBase64 = pdf.toString("base64");
   // const pdfBase64_2 = pdf2.toString("base64");
