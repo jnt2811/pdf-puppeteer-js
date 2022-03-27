@@ -170,6 +170,23 @@ module.exports.dataPhieuThuPhiDichVu = {
           thanh_tien: "150000",
         },
       ],
+      nhom_dv: "Nhom dv so 2",
+      dich_vu: [
+        {
+          ten_dich_vu: "Siêu âm đầu dò ",
+          don_vi: "Lần",
+          so_luong: "01",
+          don_gia: "150,000",
+          thanh_tien: "150000",
+        },
+        {
+          ten_dich_vu: "Siêu âm đầu dò ",
+          don_vi: "Lần",
+          so_luong: "01",
+          don_gia: "150,000",
+          thanh_tien: "150000",
+        },
+      ],
     },
   ],
   benh_nhan: {
