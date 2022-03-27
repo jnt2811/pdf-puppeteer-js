@@ -34,8 +34,40 @@ module.exports.dataPhieuTomTatKham = {
       "Neque porro quisquam est qui dolorem ipsum est qui dolorem ipsum quia dolor sit amet",
     chan_doan_xac_dinh: "Neque porro quisquam est qui dolorem ipsum",
     chuan_doan_lam_sang: "Neque porro quisquam est qui dolorem ipsum",
-    ma_benh_kem_theo: ["0923050", "29499"],
-    ma_benh_chinh: ["0923050", "29499"],
+    ma_benh_chinh: {
+      id: "0923050",
+      name: "Bệnh chính 1",
+    },
+    ma_benh_kem_theo: [
+      {
+        id: "0923050",
+        name: "Bệnh kèm theo 1",
+      },
+      {
+        id: "0923050",
+        name: "Bệnh kèm theo 2",
+      },
+      {
+        id: "0923050",
+        name: "Bệnh kèm theo 2",
+      },
+      {
+        id: "0923050",
+        name: "Bệnh kèm theo 2",
+      },
+      {
+        id: "0923050",
+        name: "Bệnh kèm theo 2",
+      },
+      {
+        id: "0923050",
+        name: "Bệnh kèm theo 2",
+      },
+      {
+        id: "0923050",
+        name: "Bệnh kèm theo 2",
+      },
+    ],
     kham_lam_sang: " Neque porro quisquam est qui dolorem ipsum",
     tien_su_gia_dinh: " Neque porro quisquam est qui dolorem ipsum",
     tien_su_ban_than:
