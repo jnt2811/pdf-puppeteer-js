@@ -242,8 +242,9 @@ module.exports = async (data) => {
           <th>Thành tiền</th>
         </tr>
 
-        ${data.nhom_dv.map((nhom_dv) => {
-          return `
+        ${data.nhom_dv
+          .map((nhom_dv) => {
+            return `
               <tr>
                 <th class="noBorder2" colspan="5">${nhom_dv.nhom_dv}</th>
                 <th class="noBorder">${formatPrice(
@@ -252,8 +253,9 @@ module.exports = async (data) => {
               </tr>
               
               
-              ${nhom_dv.dich_vu.map((dich_vu, index) => {
-                return `
+              ${nhom_dv.dich_vu
+                .map((dich_vu, index) => {
+                  return `
                     <tr>
                       <td>${index + 1 < 10 ? `0${index + 1}` : index + 1}</td>
                       <td>${dich_vu.ten_dich_vu}</td>
@@ -262,9 +264,11 @@ module.exports = async (data) => {
                       <td>${formatPrice(dich_vu.don_gia)}</td>
                       <td>${formatPrice(dich_vu.thanh_tien)}</td>
                     </tr>`;
-              })}
+                })
+                .join("")}
               `;
-        })}
+          })
+          .join("")}
 
         <tr>
           <td colspan="5" class="total">Tổng cộng</td>
