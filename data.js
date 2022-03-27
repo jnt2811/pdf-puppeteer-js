@@ -151,7 +151,8 @@ module.exports.dataPhieuThuPhiDichVu = {
     so_y_te: " Hưng Yên",
     title: "PHIẾU THU PHÍ DỊCH VỤ",
   },
-  hoa_don: [
+  mien_giam: 50000,
+  nhom_dv: [
     {
       nhom_dv: "Nhom dv so 1",
       dich_vu: [
@@ -159,14 +160,14 @@ module.exports.dataPhieuThuPhiDichVu = {
           ten_dich_vu: "Siêu âm đầu dò ",
           don_vi: "Lần",
           so_luong: "01",
-          don_gia: "150,000",
+          don_gia: "150000",
           thanh_tien: "150000",
         },
         {
           ten_dich_vu: "Siêu âm đầu dò ",
           don_vi: "Lần",
           so_luong: "01",
-          don_gia: "150,000",
+          don_gia: "150000",
           thanh_tien: "150000",
         },
       ],
@@ -176,14 +177,14 @@ module.exports.dataPhieuThuPhiDichVu = {
           ten_dich_vu: "Siêu âm đầu dò ",
           don_vi: "Lần",
           so_luong: "01",
-          don_gia: "150,000",
+          don_gia: "150000",
           thanh_tien: "150000",
         },
         {
           ten_dich_vu: "Siêu âm đầu dò ",
           don_vi: "Lần",
           so_luong: "01",
-          don_gia: "150,000",
+          don_gia: "150000",
           thanh_tien: "150000",
         },
       ],
@@ -199,4 +200,5 @@ module.exports.dataPhieuThuPhiDichVu = {
     ngay_sinh: "22/02/2000",
     ly_do_mien_giam: "",
   },
+  ngay_tao: "Ngày 01 tháng 01 năm 2022",
 };

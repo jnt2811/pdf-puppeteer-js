@@ -21,8 +21,8 @@ app.use("/", async (req, res) => {
   const pdf2 = await phieu_thu_phi_dich_vu(dataPhieuThuPhiDichVu);
 
   // const pdfBase64 = pdf.toString("base64");
-  const pdfBase64_2 = pdf2.toString("base64");
-  pbcopy(pdfBase64_2);
+  // const pdfBase64_2 = pdf2.toString("base64");
+  // pbcopy(pdfBase64_2);
   // pbcopy(pdfBase64);
 
   res.set("Content-Type", "application/pdf");

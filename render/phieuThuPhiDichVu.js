@@ -1,11 +1,42 @@
 const { generatePDF } = require("../lib/generatePDF");
 
 module.exports = async (data) => {
-  function receipt(total, num) {
-    return total + num;
-  }
+  // ham tinh tong DS hoa don
+  const countToTalSum = (ds_nhom_dv = []) => {
+    return ds_nhom_dv.reduce((prevVal, nhom_dv) => {
+      const ds_dich_vu = nhom_dv.dich_vu;
+      const sum = ds_dich_vu.reduce((_prevVal, dich_vu) => {
+        return _prevVal + Number(dich_vu.thanh_tien);
+      }, 0);
+      return prevVal + sum;
+    }, 0);
+  };
 
-  console.log(data.dich_vu.thanh_tien);
+  // ham tinh tong ds dich vu
+  const countSum = (ds_dich_vu = []) => {
+    return ds_dich_vu.reduce((prevVal, dich_vu) => {
+      return prevVal + Number(dich_vu.thanh_tien);
+    }, 0);
+  };
+
+  const formatPrice = (value) => {
+    if (!value) return 0;
+
+    const price = Number(value);
+
+    if (isNaN(price)) return 0;
+
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const countQuantity = (ds_nhom_dv = []) => {
+    let currentArr = [];
+    for (let i = 0; i < ds_nhom_dv.length; i++) {
+      currentArr = [...currentArr, ...ds_nhom_dv[i].dich_vu];
+    }
+    return currentArr.length;
+  };
+
   const html = `
   <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +84,7 @@ module.exports = async (data) => {
         padding-bottom: 2px;
       }
       .textBelowTitle1 {
-        padding-top: 10px;
+        padding-top: 5px;
       }
       .title > div:first-child {
         padding-bottom: 5px;
@@ -145,6 +176,7 @@ module.exports = async (data) => {
       .tien > div,
       .tenTien > div {
         padding-bottom: 10px;
+        text-align: end;
       }
       .date {
         padding-top: 24px;
@@ -182,10 +214,12 @@ module.exports = async (data) => {
       <h2 class="contentTitle">Thông tin bệnh nhân</h2>
       <div class="c">
         <div class="col">
-          <div>Mã bệnh nhân: <span class="bold"> ${data.benh_nhan.ma_benh_nhan}</span></div>
+          <div>Mã bệnh nhân: <span class="bold"> ${
+            data.benh_nhan.ma_benh_nhan
+          }</span></div>
           <div>Giới tính: ${data.benh_nhan.gioi_tinh}</div>
           <div>Số điện thoại: ${data.benh_nhan.sdt}</div>
-          <div>Lý do miễn giảm : ${data.benh_nhan.ly_do_mien_giam} </div>
+          <div>Lý do miễn giảm : ${data.benh_nhan.ly_do_mien_giam}</div>
         </div>
         <div class="col">
           <div>Tên bệnh nhân: <span class="bold"> Alex Bách</span></div>
@@ -207,61 +241,42 @@ module.exports = async (data) => {
           <th>Đơn giá</th>
           <th>Thành tiền</th>
         </tr>
-        <tr>
-          <th class="noBorder2" colspan="5">Nhóm chi phí số 01</th>
-          <th class="noBorder">300,000</th>
-        </tr>
-        <tr>
-          <td>01</td>
-          <td>Siêu âm đầu dò</td>
-          <td>Lần</td>
-          <td>01</td>
-          <td>150,000</td>
-          <td>150,000</td>
-        </tr>
-        <tr>
-          <td>02</td>
-          <td>Xét nghiệm máu</td>
-          <td>Lần</td>
-          <td>01</td>
-          <td>tdành tiền</td>
-          <td>Thành tiền</td>
-        </tr>
-        <tr>
-          <th class="noBorder2" colspan="5">Nhóm chi phí số 02</th>
-          <th class="noBorder">450,000</th>
-        </tr>
-        <tr>
-          <td>02</td>
-          <td>Xét nghiệm máu</td>
-          <td>Lần</td>
-          <td>01</td>
-          <td>150,000</td>
-          <td>150,000</td>
-        </tr>
-        <tr>
-          <td>01</td>
-          <td>Siêu âm</td>
-          <td>Lần</td>
-          <td>01</td>
-          <td>150,000</td>
-          <td>150,000</td>
-        </tr>
-        <tr>
-          <td>02</td>
-          <td>Siêu âm</td>
-          <td>Lần</td>
-          <td>01</td>
-          <td>150,000</td>
-          <td>150,000</td>
-        </tr>
+
+        ${data.nhom_dv.map((nhom_dv) => {
+          return `
+              <tr>
+                <th class="noBorder2" colspan="5">${nhom_dv.nhom_dv}</th>
+                <th class="noBorder">${formatPrice(
+                  countSum(nhom_dv.dich_vu)
+                )}</th>
+              </tr>
+              
+              
+              ${nhom_dv.dich_vu.map((dich_vu, index) => {
+                return `
+                    <tr>
+                      <td>${index + 1 < 10 ? `0${index + 1}` : index + 1}</td>
+                      <td>${dich_vu.ten_dich_vu}</td>
+                      <td>${dich_vu.don_vi}</td>
+                      <td>${dich_vu.so_luong}</td>
+                      <td>${formatPrice(dich_vu.don_gia)}</td>
+                      <td>${formatPrice(dich_vu.thanh_tien)}</td>
+                    </tr>`;
+              })}
+              `;
+        })}
+
         <tr>
           <td colspan="5" class="total">Tổng cổng</td>
-          <th class="totalText">750000</th>
+          <th class="totalText">${formatPrice(countToTalSum(data.nhom_dv))}</th>
         </tr>
       </table>
       <div class="foot">
-        <div>Cộng khoản: 05</div>
+        <div>Cộng khoản: ${
+          countQuantity(data.nhom_dv) < 10
+            ? `0${countQuantity(data.nhom_dv)}`
+            : countQuantity(data.nhom_dv)
+        }</div>
 
         <div class="hoaDon">
           <div class="hoadonTotal">
@@ -272,21 +287,23 @@ module.exports = async (data) => {
               </div>
               <div>
                 <div class="tien">
-                  <div>750 000</div>
-                  <div>50 000</div>
+                  <div>${formatPrice(countToTalSum(data.nhom_dv))}</div>
+                  <div>${formatPrice(data.mien_giam)}</div>
                 </div>
               </div>
             </div>
             <div class="hoadonTotal3">
               <div class="tenTien">
-                <div>(3)= (1)-(2) Tiền khách hàng:</div>
+                <div>(3) = (1) - (2) Tiền khách hàng:</div>
               </div>
 
               <div class="tien">
-                <div>700 000</div>
+                <div>${formatPrice(
+                  countToTalSum(data.nhom_dv) - data.mien_giam
+                )}</div>
               </div>
             </div>
-            <div class="date">Ngày 01 tháng 01 năm 2022</div>
+            <div class="date">${data.ngay_tao}</div>
           </div>
         </div>
       </div>
