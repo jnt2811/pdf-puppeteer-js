@@ -26,9 +26,8 @@ module.exports = async (data) => {
         font-size: 12px;
       }
 
-      .title {
+      .title h2 {
         font-weight: 700;
-
         text-transform: uppercase;
       }
       .header1 {
@@ -44,8 +43,7 @@ module.exports = async (data) => {
         font-size: 10px;
         font-style: normal;
         font-weight: 700;
-        /* padding-top: 40px; */
-        padding-bottom: 30px;
+        padding-bottom: 10px;
         text-align: center;
       }
       .textBelowTitle1,
@@ -162,8 +160,8 @@ module.exports = async (data) => {
         float: right;
       }
       .avatar {
-        max-height: 69px;
-        max-width: 69px;
+        max-height: 55px;
+        max-width: 55px;
         padding-right: 15px;
       }
       .line {
@@ -184,27 +182,28 @@ module.exports = async (data) => {
   <body>
     <div class="titleWrap">
       <div class="imgTitle">
-        <img
-          class="avatar"
-          src="https://printgo.vn/uploads/file-logo/1/x512x512.747d5219a89da42fe2408c84760b2bf3.ai.1.png.pagespeed.ic.onO18wiIuj.webp"
-          alt=""
-        />
+      ${
+        !!data.hospital.avatar
+          ? `<img
+        class="avatar"
+        src=${data.hospital.avatar}
+        alt=""
+      />`
+          : ""
+      }
+        
       </div>
       <div class="title">
         <h2>SỞ Y TẾ HƯNG YÊN</h2>
         <h2>${data.hospital.name}</h2>
-        <div class="textBelowTitle1">
-        ${data.hospital.address}
-        </div>
         <div class="textBelowTitle2">
-        ${data.hospital.phone}
+        Điện thoại: ${data.hospital.phone}
         </div>
       </div>
     </div>
     <div class="header1">STT: 13</div>
     <div class="header">${data.hospital.name}</div>
     <div class="contentWrap">
-      <h2 class="contentTitle">Thông tin bệnh nhân</h2>
       <div class="c">
         <div class="col">
           <div>Họ và tên bệnh nhân: <span class="bold"> ${
@@ -231,16 +230,19 @@ module.exports = async (data) => {
           <td>STT</td>
           <td>Tên dịch vụ</td>
         </tr>
-        ${data.dich_vu.map((dich_vu, index) => {
-          return `
+        ${data.dich_vu
+          .map((dich_vu, index) => {
+            return `
           <tr>
           <td>${index + 1 < 10 ? `0${index + 1}` : index + 1}</td>
           <th class="">${dich_vu}</th>
         </tr>
           `;
-        })}
+          })
+          .join("")}
         
       </table>
+
       <div class="foot">
         <div>
           <div>Số thẻ BHYT:<span class="bold"> ${
@@ -258,7 +260,9 @@ module.exports = async (data) => {
         </div>
       </div>
     </div>
+
     <div class="line"></div>
+
     <div class="alert">Phiếu có giá trị trong ngày</div>
   </body>
 </html>
