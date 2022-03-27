@@ -267,7 +267,7 @@ module.exports = async (data) => {
         })}
 
         <tr>
-          <td colspan="5" class="total">Tổng cổng</td>
+          <td colspan="5" class="total">Tổng cộng</td>
           <th class="totalText">${formatPrice(countToTalSum(data.nhom_dv))}</th>
         </tr>
       </table>
