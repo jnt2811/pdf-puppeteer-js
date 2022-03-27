@@ -56,6 +56,7 @@ module.exports = async (data) => {
           font-weight: bold;
           padding-block: 20px;
           border-bottom: 0.5px solid #D0D0D0;
+          
         }
         
         .body {
