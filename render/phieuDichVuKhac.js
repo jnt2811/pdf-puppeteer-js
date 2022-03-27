@@ -12,7 +12,7 @@ module.exports = async (data) => {
     <style>
       * {
         font-family: "Times New Roman", Times, serif;
-        font-size: 10px;
+        font-size: 13px;
       }
       .titleWrap {
         display: flex;
@@ -23,7 +23,7 @@ module.exports = async (data) => {
       h2 {
         margin-block: 0;
         margin-bottom: 5px;
-        font-size: 12px;
+        font-size: 15px;
       }
 
       .title h2 {
@@ -40,15 +40,17 @@ module.exports = async (data) => {
         text-align: center;
       }
       .header {
-        font-size: 10px;
+        font-size: 13px;
         font-style: normal;
         font-weight: 700;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
         text-align: center;
       }
+      
       .textBelowTitle1,
       .textBelowTitle2 {
-        font-size: 12px;
+        
+        font-size: 13px;
         font-style: normal;
         font-weight: 400;
         padding-bottom: 2px;
@@ -78,6 +80,9 @@ module.exports = async (data) => {
       }
       .col > div {
         padding-bottom: 10px;
+      }
+      .col>div>span{
+        text-transform: uppercase;
       }
       .contentTitle {
         padding-top:5px;
@@ -172,11 +177,15 @@ module.exports = async (data) => {
         padding-bottom: 30px;
         font-style: italic;
         font-weight: 400;
-        font-size: 10px;
+        
         line-height: 11px;
         text-align: center;
-        color: #f34946;
+        
       }
+      .stt{
+        width:40px;
+      }
+      
     </style>
   </head>
   <body>
@@ -227,7 +236,7 @@ module.exports = async (data) => {
 
       <table>
         <tr>
-          <td>STT</td>
+          <td class="stt">STT</td>
           <td>Tên dịch vụ</td>
         </tr>
         ${data.dich_vu
