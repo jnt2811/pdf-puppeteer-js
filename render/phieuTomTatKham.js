@@ -64,6 +64,8 @@ module.exports = async (data) => {
         }
         .col > div {
           padding-bottom: 10px;
+          white-space: nowrap;
+          overflow: hidden;
         }
         .contentTitle {
           padding-bottom: 10px;
@@ -108,6 +110,7 @@ module.exports = async (data) => {
         }
         .foot > div {
           padding-bottom: 12px;
+          line-height: 1.6;
         }
         .hoaDon {
           display: flex;

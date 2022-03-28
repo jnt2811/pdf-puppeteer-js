@@ -16,7 +16,7 @@ const app = express();
 const port = process.env.PORT || 3113;
 
 app.use("/", async (req, res) => {
-  const pdf = await phieuDichVuKhac(dataPhieuDichVuKhac);
+  const pdf = await phieuTomTatKham(dataPhieuTomTatKham);
 
   // const pdfBase64 = pdf.toString("base64");
   // pbcopy(pdfBase64);
